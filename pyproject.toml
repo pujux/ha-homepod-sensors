@@ -20,6 +20,9 @@ dev = [
     "pre-commit>=3.7",
 ]
 
+[tool.setuptools.packages.find]
+include = ["custom_components*"]
+
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
