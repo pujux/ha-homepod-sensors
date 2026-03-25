@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "ha-homepod-sensors"
+version = "1.0.0"
+description = "Home Assistant integration for HomePod Mini temperature and humidity sensors"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-asyncio>=0.23",
+    "pytest-homeassistant-custom-component>=0.13",
+    "homeassistant>=2024.1.0",
+    "ruff>=0.3",
+    "mypy>=1.9",
+    "pre-commit>=3.7",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+strict = false

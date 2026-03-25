@@ -1,0 +1,54 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up HomePod Sensors",
+        "description": "Your iOS Shortcut should POST to this webhook URL every {update_interval} minutes:\n\n```\n{webhook_url}\n```\n\nSee the README for the full Shortcut setup guide and importable template.\n\nSet the update interval below (how often your iOS Shortcut will run).",
+        "data": {
+          "update_interval": "Update interval (minutes)"
+        },
+        "data_description": {
+          "update_interval": "How often the iOS Shortcut pushes sensor data. Devices are marked stale after 3× this value."
+        }
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "Only one HomePod Sensors instance is supported. It manages all HomePod Minis in your Apple Home."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "HomePod Sensors Options",
+        "data": {
+          "update_interval": "Update interval (minutes)"
+        },
+        "data_description": {
+          "update_interval": "How often the iOS Shortcut pushes sensor data. Staleness threshold = 3× this value."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "temperature": {
+        "name": "Temperature"
+      },
+      "humidity": {
+        "name": "Humidity"
+      },
+      "last_updated": {
+        "name": "Last Updated"
+      }
+    },
+    "binary_sensor": {
+      "stale": {
+        "name": "Stale",
+        "state": {
+          "on": "Stale",
+          "off": "Fresh"
+        }
+      }
+    }
+  }
+}
